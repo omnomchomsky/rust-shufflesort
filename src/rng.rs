@@ -1,6 +1,5 @@
 use rand;
 
-
 fn rng() -> i32 {
        let x: i32 = rand::random::<i32>();
        return x;

@@ -1,4 +1,5 @@
 mod rng;
+mod sort;
 
 fn get_arguments(){
     let args: Vec<_> = std::env::args().collect();
@@ -7,9 +8,16 @@ fn get_arguments(){
 
 fn main() { 
     let args = get_arguments();
-    println!("{}", args.1.parse().unwrap());
-    for i in rng::shuffle(size){
+    let size = args.1.parse().unwrap();
+    let unsorted_list = rng::shuffle(size);
+    for i in unsorted_list {
         println!("{}", i);
     }
+
+    let sorted_list = sort::sort(unsorted_list);
+    for i in sorted_list {
+        println!("{}", i);
+    }
+
 }
 
